@@ -9,6 +9,7 @@ import DatePicker from 'react-datepicker';
 import { HiOutlineRefresh } from "react-icons/hi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { API_DOMAIN } from '../utils/constants';
 
 const RefundedOrReplaced = () => {
   const { user } = useAuthContext();
@@ -19,7 +20,7 @@ const RefundedOrReplaced = () => {
   const [refundDate, setRefundDate] = useState(null);
   const [rmas, setRmas] = useState([]);
   const [filteredRmas, setFilteredRmas] = useState([]);
-  const baseURL = "http://localhost:5555";
+  const baseURL = API_DOMAIN;
 
   // Fetch all RMAs and product units
   const fetchRmas = async () => {

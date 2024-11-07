@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify'; // Import toast
 import { useProductContext } from '../page';
+import { API_DOMAIN } from '../utils/constants';
 
 const CheckoutModal = ({ isOpen, onRequestClose, items }) => {
     const navigate = useNavigate();
-    const baseURL = "http://localhost:5555";
+    const baseURL = API_DOMAIN;
     const { cart, setCart } = useProductContext(); // Get cart and setCart from context
 
     if (!isOpen) return null;

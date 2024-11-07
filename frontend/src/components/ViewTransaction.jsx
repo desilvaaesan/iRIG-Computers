@@ -4,6 +4,7 @@ import { RiRefundLine } from "react-icons/ri";
 import { BsArrowRepeat } from "react-icons/bs";
 import { IoCaretBackOutline } from "react-icons/io5";
 import axios from 'axios';
+import { API_DOMAIN } from '../utils/constants';
 
 const ViewTransaction = ({ transaction, onClose }) => {
   const { darkMode } = useAdminTheme();
@@ -57,7 +58,7 @@ const ViewTransaction = ({ transaction, onClose }) => {
   const statusStyles = getStatusStyles(transaction.status);
 
 
-  const baseURL = "http://localhost:5555";
+  const baseURL = API_DOMAIN;
   const [refundData, setRefundData] = useState([]);
   const [rmaData, setRMAData] = useState([]);
 

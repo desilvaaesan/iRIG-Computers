@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import ViewRMA from '../components/ViewRMA';
 import { HiOutlineRefresh } from "react-icons/hi";
 import axios from 'axios';
+import { API_DOMAIN } from '../utils/constants';
 
 const Rma = () => {
     const { user } = useAuthContext();
     const { darkMode } = useAdminTheme();
     const navigate = useNavigate();
-    const baseURL = "http://localhost:5555";
+    const baseURL = API_DOMAIN;
     const [searchQuery, setSearchQuery] = useState('');
     const [customerNameFilter, setCustomerNameFilter] = useState('');
     const [warranty_status, setWarrantyStatus] = useState('');

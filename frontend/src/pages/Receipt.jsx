@@ -4,8 +4,9 @@ import { useAdminTheme } from '../context/AdminThemeContext';
 import ReactToPrint from 'react-to-print';
 import { IoCaretBackOutline } from 'react-icons/io5';
 import axios from 'axios';
+import { API_DOMAIN } from '../utils/constants';
 
-const baseURL = 'http://localhost:5555';
+const baseURL = API_DOMAIN;
 
 const Receipt = () => {
   const { darkMode } = useAdminTheme();

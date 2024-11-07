@@ -4,10 +4,11 @@ import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTheme } from '../context/ThemeContext';
+import { API_DOMAIN } from '../utils/constants';
 
 const BackNavbar = ({ id }) => {
   const navigate = useNavigate();
-  const baseURL = 'http://localhost:5555';
+  const baseURL = API_DOMAIN;
   const { darkMode } = useTheme(); // Access darkMode from context
 
   const handleBackClick = () => {

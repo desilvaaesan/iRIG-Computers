@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import ConfirmationDialog from '../components/ConfirmationDialog';
+import { API_DOMAIN } from '../utils/constants';
 // Inside your App component or main component render method
 <ToastContainer />
 
@@ -19,7 +20,7 @@ const AdminProfile = () => {
     const { user } = useAuthContext();
     const { darkMode } = useAdminTheme();
     const navigate = useNavigate();
-    const baseURL = "http://localhost:5555";
+    const baseURL = API_DOMAIN;
     const [activeButton, setActiveButton] = useState('profile');
     const [searchQuery, setSearchQuery] = useState('');
     const [contact, setContact] = useState(user.contact);
@@ -151,7 +152,7 @@ const AdminProfile = () => {
     const handleConfirmDelete = async () => {
         if (userToDelete) {
             try {
-                const response = await fetch(`http://localhost:5555/user/${userToDelete}`, {
+                const response = await fetch(`${API_DOMAIN}/user/${userToDelete}`, {
                     method: 'DELETE',
                 });
 

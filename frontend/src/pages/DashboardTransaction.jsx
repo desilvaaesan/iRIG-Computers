@@ -11,7 +11,7 @@ import DatePicker from 'react-datepicker';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import ViewTransaction from '../components/ViewTransaction';
-
+import { API_DOMAIN } from '../utils/constants';
 
 
 // This component is used to display all sales orders in the dashboard.
@@ -89,7 +89,7 @@ const DashboardTransaction = () => {
       setLoading(true);
       
       try {
-        const response = await axios.get('http://localhost:5555/transaction', {
+        const response = await axios.get(`${API_DOMAIN}/transaction`, {
           params: {
             payment_status: 'paid',
             transaction_id: searchQuery,

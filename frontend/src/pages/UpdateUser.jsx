@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useAdminTheme } from '../context/AdminThemeContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { API_DOMAIN } from '../utils/constants';
 
 const UpdateUser = () => {
     const { darkMode } = useAdminTheme();
@@ -25,7 +26,7 @@ const UpdateUser = () => {
     const [loading, setLoading] = useState(false);
     const [isChangingPassword, setIsChangingPassword] = useState(false);
 
-    const baseURL = "http://localhost:5555";
+    const baseURL = API_DOMAIN;
 
     useEffect(() => {
         axios.get(`${baseURL}/user/${userId}`)

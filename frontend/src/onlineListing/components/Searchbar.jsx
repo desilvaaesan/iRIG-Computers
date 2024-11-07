@@ -3,11 +3,12 @@ import { FaSearch } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios'; // Make sure axios is installed
+import { API_DOMAIN } from '../utils/constants';
 
 const Searchbar = ({ query, onQueryChange, placeholderMessage }) => {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate(); // Initialize useNavigate
-    const baseURL = "http://localhost:5555";
+    const baseURL = API_DOMAIN;
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -23,7 +24,7 @@ const Searchbar = ({ query, onQueryChange, placeholderMessage }) => {
     const fetchProducts = async (searchQuery) => {
         if (searchQuery) {
             try {
-                const response = await axios.get(`http://localhost:5555/product/search?name=${searchQuery}`);
+                const response = await axios.get(`${baseURL}/product/search?name=${searchQuery}`);
                 setProducts(response.data); // Update the product list with search results
             } catch (error) {
                 console.error('Error fetching products:', error);

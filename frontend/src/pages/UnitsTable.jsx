@@ -6,6 +6,7 @@ import { useAdminTheme } from '../context/AdminThemeContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineUpload } from 'react-icons/ai';
+import { API_DOMAIN } from '../utils/constants';
 
 const UnitsTable = () => {
   const { productId } = useParams();
@@ -21,7 +22,7 @@ const UnitsTable = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const baseURL = "http://localhost:5555";
+  const baseURL = API_DOMAIN;
   const { darkMode } = useAdminTheme();
   const [editStatus, setEditStatus] = useState("");
 

@@ -1,0 +1,1 @@
+export const API_DOMAIN = 'irig-computers-api.vercel.app';

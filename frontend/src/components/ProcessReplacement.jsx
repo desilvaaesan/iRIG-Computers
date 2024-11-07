@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'; // Import Axios
 import ReplacementReceipt from "./ReplacementReceipt";
+import { API_DOMAIN } from '../utils/constants';
 
 const ProcessReplacement = ({ onClose, rma }) => {
     const { darkMode } = useTheme();
@@ -19,7 +20,7 @@ const ProcessReplacement = ({ onClose, rma }) => {
     useEffect(() => {
         const fetchProductList = async () => {
             try {
-                const response = await axios.get(`http://localhost:5555/product/${rma.product_id}`);
+                const response = await axios.get(`${API_DOMAIN}/product/${rma.product_id}`);
     
                 // Get the whole product object
                 const productData = response.data;
@@ -66,7 +67,7 @@ const ProcessReplacement = ({ onClose, rma }) => {
         }
     
         try {
-            const response = await axios.put(`http://localhost:5555/transaction/${rma.transaction}/replace-units`, {
+            const response = await axios.put(`${API_DOMAIN}/transaction/${rma.transaction}/replace-units`, {
                 products: [
                     {
                         old_serial_number: rma.serial_number,

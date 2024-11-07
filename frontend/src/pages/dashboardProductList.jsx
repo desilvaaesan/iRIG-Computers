@@ -16,6 +16,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import ConfirmationDialog from '../components/ConfirmationDialog';
 import { useStockAlerts } from '../context/StockAlertsContext';
+import { API_DOMAIN } from '../utils/constants';
 
 const stockColors = {
   "HIGH": "#1e7e34", // Darker Green
@@ -58,7 +59,7 @@ const DashboardProductList = () => {
   const { user } = useAuthContext();
   const { darkMode } = useAdminTheme();
   const navigate = useNavigate();
-  const baseURL = "http://localhost:5555";
+  const baseURL = API_DOMAIN;
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [sortBy, setSortBy] = useState('');

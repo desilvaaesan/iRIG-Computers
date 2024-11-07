@@ -8,6 +8,7 @@ import { AiOutlineUpload } from "react-icons/ai";
 import ProductModal from '../components/ProductModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_DOMAIN } from '../utils/constants';
 
 const AddProduct = () => {
   const handleCloseModal = () => setOpenModal(false);
@@ -234,7 +235,7 @@ const handleDescriptionChange = (e) => {
     formData.append('units', JSON.stringify(units));
 
     // Send the request to the server
-    axios.post('http://localhost:5555/product', formData)
+    axios.post(`${API_DOMAIN}/product`, formData)
         .then(res => {
             console.log('Product added:', res.data);
             handleBackClick();

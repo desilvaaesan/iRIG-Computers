@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import DashboardNavbar from "../components/DashboardNavbar";
 import { useAdminTheme } from "../context/AdminThemeContext";
 import StatsCard from "../components/StatsCard";
@@ -10,14 +10,15 @@ import LowStockItems from '../charts/LowStockItems';
 import PendingRMARequests from '../charts/PendingRMARequests';
 import LineChart from '../charts/LineChart';
 import DateRangeModal from '../components/DateRangeModal';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useStockAlerts } from '../context/StockAlertsContext';
+import { API_DOMAIN } from '../utils/constants';
 
 const AdminHome = () => {
   const { darkMode } = useAdminTheme();
   const { user } = useAuthContext();
-  const baseURL = "http://localhost:5555";
+  const baseURL = API_DOMAIN;
   const [selectedTimeframe, setSelectedTimeframe] = useState('Last 30 Days');
   const [transactionCount, setTransactionCount] = useState([]);
   const [totalPaidPrice, setTotalPaidPrice] = useState(0);
@@ -48,7 +49,7 @@ const AdminHome = () => {
 
   const fetchRefunds = async () => {
     try {
-      const response = await axios.get('http://localhost:5555/refund', {
+      const response = await axios.get(`${API_DOMAIN}/refund`, {
         headers: {
           'Authorization': `Bearer ${user.token}`, // Include authorization token if needed
         },

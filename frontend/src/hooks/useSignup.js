@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_DOMAIN } from '../utils/constants';
 
 export const useSignUp = () => {
     const [error, setError] = useState(null);
@@ -9,7 +10,7 @@ export const useSignUp = () => {
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:5555/user/signup', {
+            const response = await fetch(`${API_DOMAIN}/user/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
