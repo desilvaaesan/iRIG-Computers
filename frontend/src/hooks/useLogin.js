@@ -14,7 +14,7 @@ export const useLogin = () => {
         setError(null);
 
         try {
-            const response = await fetch(`irig-computers-api.vercel.app/user/login`, {
+            const response = await fetch(`${API_DOMAIN}/user/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
