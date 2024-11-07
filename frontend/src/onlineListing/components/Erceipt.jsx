@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import LOGO from '../assets/iRig2.png'
-import { API_DOMAIN } from '../utils/constants';
+import { API_DOMAIN } from '../../utils/constants';
 
 
 const Erceipt = () => {
